@@ -161,7 +161,7 @@ defmodule ETH.Query do
     end
   end
 
-  def estimate_gas!(transaction \\ %{data: ""}, denomaination \\ :wei)
+  def estimate_gas!(transaction \\ %{data: ""}, denomination \\ :wei)
 
   def estimate_gas!(transaction = %{to: _to, data: _data}, denomination) do
     {:ok, hex_gas_estimate} = HttpClient.eth_estimate_gas(transaction)
