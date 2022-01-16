@@ -28,6 +28,7 @@ defmodule ETH.Transaction do
     |> build
     |> sign_transaction(private_key)
     |> Base.encode16()
+    |> add_0x()
     |> send
   end
 
@@ -226,5 +227,9 @@ defmodule ETH.Transaction do
 
   defp set_default_from(params, private_key) when is_map(params) do
     Map.merge(params, %{from: Map.get_lazy(params, :from, fn -> get_address(private_key) end)})
+  end
+
+  def add_0x(string) do
+    "0x" <> string
   end
 end
