@@ -140,6 +140,6 @@ defmodule ETH.Transaction.Builder do
     }
   end
 
-  defp generate_nonce(nil), do: 0
+  defp generate_nonce(nil), do: 1
   defp generate_nonce(address), do: ETH.get_transaction_count!(address, "pending")
 end
